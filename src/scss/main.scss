@@ -1,0 +1,176 @@
+@import "reset";
+@import "common";
+
+.loginBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: calc(50% - 210px);
+  margin: 0 auto;
+  padding: 78px 40px 40px;
+  width: 360px;
+  height: 420px;
+  box-shadow: 1px 3px 33px rgba(0, 0, 0, 0.22);
+  background-color: rgba(256, 256, 256, 0.8);
+  box-sizing: border-box;
+  animation: loginBlockRotate 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+  &__paragraph {
+    margin-bottom: 37px;
+    font-size: 15px;
+    opacity: 0.5;
+  }
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  top: -50px;
+  width: 101px;
+  height: 100px;
+  background-color: #ffffff;
+  box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.07);
+  border-radius: 15px;
+  animation: logoRotate 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+
+  &__square {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    opacity: .5;
+
+    &_orange {
+      top: 15px;
+      left: calc(50% - 23px);
+      background-color: #f8911d;
+      animation: slide-in-fwd-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+    }
+
+    &_violet {
+      top: 30px;
+      right: calc(50% - 23px);
+      background-color: #d1369c;
+      animation: slide-in-fwd-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+    }
+
+    &_green {
+      top: 60px;
+      right: calc(50% - 23px);
+      background-color: #4ebf49;
+      animation: slide-in-fwd-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both;
+    }
+
+    &_blue {
+      top: 45px;
+      left: calc(50% - 23px);
+      background-color: #3e9ffd;
+      animation: slide-in-fwd-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+  }
+}
+
+.loginBlockForm {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    width: 281px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 11px;
+    border: 1px solid #636363;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    outline: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.39);
+      border: 2px solid #3e9ffd;
+    }
+
+    &::placeholder {
+      opacity: 0.3;
+    }
+  }
+  
+  &__checkInput {
+    appearance: none;
+    position: absolute;
+  }
+
+  &__checkbox {
+    position: absolute;
+    top: 2px;
+    width: 13px;
+    height: 12px;
+    margin-left: -19px;
+    background-image: url("../img/checkbox.png");
+    background-repeat: no-repeat;
+  }
+
+  &__checkLabel {
+    position: relative;
+    padding-left: 19px;
+  }
+
+  &__submitBtn {
+    margin-top: 42px;
+    width: 281px;
+    height: 40px;
+    background-color: #3e9ffd;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      color: #3e9ffd;
+      background-color: #ffffff;
+      border: 1px solid #3e9ffd;
+    }
+  }
+}
+
+@keyframes loginBlockRotate {
+  0% {
+    transform:  perspective(600px) rotateX(-45deg);
+    opacity: 0;
+  }
+  100% {
+    transform:  perspective(600px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes logoRotate {
+  0% {
+    transform:  perspective(600px) rotateX(70deg);
+  }
+  100% {
+    transform:  perspective(600px) rotateX(0deg);
+  }
+}
+
+@keyframes slide-in-fwd-top {
+  0% {
+    transform: translateZ(-400px) translateY(-800px) perspective(600px) rotateX(300deg);
+  }
+  100% {
+    transform: translateZ(0) translateY(0) perspective(600px) rotateX(0deg);
+  }
+}
